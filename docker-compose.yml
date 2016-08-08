@@ -1,0 +1,8 @@
+version: "2"
+services:
+  caddy:
+    build: .
+    ports:
+      - 2015:2015
+    volumes:
+      - ./Caddyfile:/etc/Caddyfile

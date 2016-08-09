@@ -5,7 +5,7 @@ services:
     ports:
       - 2015:2015
     volumes:
-      - ./Caddyfile:/etc/Caddyfile
+      - .:/app
   nginx:
     image: nginx:latest
   apache:

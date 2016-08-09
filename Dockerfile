@@ -1,5 +1,7 @@
 FROM mhart/alpine-node:6.3
 
+WORKDIR /app
+
 RUN apk add --update openssh-client git tar curl
 
 RUN curl --silent --show-error --fail --location \
@@ -9,5 +11,7 @@ RUN curl --silent --show-error --fail --location \
     && chmod 0755 /usr/bin/caddy \
     && /usr/bin/caddy -version
 
+ADD . /app
+
 ENTRYPOINT ["/usr/bin/caddy"]
-CMD ["--conf", "/etc/Caddyfile"]
+CMD ["--conf", "/app/Caddyfile"]

@@ -1,0 +1,12 @@
+{
+  "websites": [
+    {
+      "url": "http://nginx.dev:2015",
+      "backends": ["nginx"]
+    },
+    {
+      "url": "http://apache.dev:2015",
+      "backends": ["apache"]
+    }
+  ]
+}

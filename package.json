@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node --presets es2015 index.js"
+    "start": "babel-node --presets es2015 index.js",
+    "compile": "mustache info.json Caddyfile.mustache > Caddyfile"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "hyper-aws4": "^1.1.1",
+    "mustache": "^2.2.1",
     "node-fetch": "^1.6.0"
   },
   "devDependencies": {

@@ -6,3 +6,7 @@ services:
       - 2015:2015
     volumes:
       - ./Caddyfile:/etc/Caddyfile
+  nginx:
+    image: nginx:latest
+  apache:
+    image: nimmis/alpine-apache

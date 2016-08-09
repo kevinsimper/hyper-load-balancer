@@ -13,5 +13,4 @@ RUN curl --silent --show-error --fail --location \
 
 ADD . /app
 
-ENTRYPOINT ["/usr/bin/caddy"]
-CMD ["--conf", "/app/Caddyfile"]
+CMD npm run foreman

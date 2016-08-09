@@ -7,11 +7,13 @@
     "start": "babel-node --presets es2015 index.js",
     "compile": "mustache info.json Caddyfile.mustache > Caddyfile",
     "reload": "npm run compile && pkill -USR1 caddy",
+    "foreman": "nf start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "foreman": "^2.0.0-1",
     "hyper-aws4": "^1.1.1",
     "mustache": "^2.2.1",
     "node-fetch": "^1.6.0"

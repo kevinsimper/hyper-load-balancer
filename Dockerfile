@@ -1,4 +1,4 @@
-FROM alpine:3.2
+FROM mhart/alpine-node:6.3
 
 RUN apk add --update openssh-client git tar curl
 

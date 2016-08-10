@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.4.1",
     "foreman": "^2.0.0-1",
     "hyper-aws4": "^1.1.1",
     "mustache": "^2.2.1",

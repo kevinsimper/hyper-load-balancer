@@ -13,4 +13,6 @@ RUN curl --silent --show-error --fail --location \
 
 ADD . /app
 
+RUN npm install
+
 CMD npm run foreman

@@ -33,17 +33,27 @@ let containersInfo = containers.then((containers_) => {
 
 Promise.all([containers, containersInfo]).spread((cons, infos) => {
   infos.map((info, i) => {
+
     let virtualHost = info.Config.Env.find((item) => {
       return item.indexOf('VIRTUAL_HOST') > -1
     })
+
     if(virtualHost !== undefined) {
       virtualHost = virtualHost.replace('VIRTUAL_HOST=','')
       let fip = info.Config.Labels['sh.hyper.fip']
+      let internalIp = info.NetworkSettings.IPAddress
+      let choosenIp = (fip) ? fip : internalIp
       let port = cons[i].Ports[0].PublicPort
-      output.websites.push({
-        url: virtualHost,
-        backends: [fip + ':' + port]
-      })
+      let alreadyDefined = output.websites.find(web => web.url === virtualHost)
+
+      if (alreadyDefined !== undefined) {
+        alreadyDefined.backends.push(choosenIp + ':' + port)
+      } else {
+        output.websites.push({
+          url: virtualHost,
+          backends: [choosenIp + ':' + port]
+        })
+      }
     }
   })
 

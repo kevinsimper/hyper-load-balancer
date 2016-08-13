@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node --presets es2015 index.js",
+    "start": "babel-node --presets es2015 index.js && npm run compile",
     "compile": "mustache info.json Caddyfile.mustache > Caddyfile",
-    "reload": "npm run compile && pkill -USR1 caddy",
+    "reload": "pkill -USR1 caddy",
     "foreman": "nf start"
   },
   "keywords": [],
